@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tasks.css">
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding-inline: 60px;
+        }
+
+        section {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="big-container">
+            <h1>Enter the number</h1>
+            <div class="enter1"><input type="number" class="num" id="num">
+
+                <button class="btn1" onclick="Reverse()"><span class="text"> Reverse</span></button>
+            </div>
+            <h1 id="result">result</h1>
+        </div>
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>Sum</h1>
+            <div class="enter1"><input type="number" class="num" id="num1">
+
+                <button class="btn1" onclick="Sum()"><span class="text"> Sum</span></button>
+            </div>
+            <h1 id="result1">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>Odd Even</h1>
+            <div class="enter1"><input type="number" class="num" id="num2">
+
+                <button class="btn1" onclick="oddeven()"><span class="text"> odd or even</span></button>
+            </div>
+            <h1 id="result2">Result</h1>
+
+        </div>
+    </section>
+    <section>
+        <div class="big-container">
+            <h1> Same or Not</h1>
+            <div class="enter1">
+                <input type="text" class="num" id="num3">
+
+                <input type="text" class="num" id="num4">
+
+
+                <button class="btn1" onclick="sameornot()"><span class="text">
+                        <h2> Same or Not</h2>
+                    </span></button>
+            </div>
+            <h1 id="result3">Result</h1>
+        </div>
+    </section>
+    <section>
+        <div class="big-container">
+            <h1> unit converter</h1>
+            <div class="enter1">
+                <input type="text" class="num" id="feet">
+
+                <input type="text" class="num" id="inch">
+
+                <button class="btn1" onclick="oddeven()"><span class="text">
+                        <h2> convert</h2>
+                    </span></button>
+            </div>
+            <h1 id="result3">Result</h1>
+        </div>
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>completely divisible or not</h1>
+            <div class="enter1"><input type="number" class="num" id="fno">
+
+                <input type="text" class="num" id="sno">
+
+
+                <button class="btn1" onclick="yes()"><span class="text"> completely divisible </span></button>
+            </div>
+            <h1 id="result4">Result</h1>
+        </div>
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>Divisibilty</h1>
+            <div class="enter1"><input type="number" class="num" id="divisi">
+
+                <button class="btn1" onclick="Rull()"><span class="text"> Check</span></button>
+            </div>
+            <h1 id="resultdivisi">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>Check</h1>
+            <div class="enter1"><input type="number" class="num" id="check">
+
+                <button class="btn1" onclick="see()"><span class="text"> Check</span></button>
+            </div>
+            <h1 id="resultcheck">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>Which is Larger</h1>
+            <div class="enter1">
+                <input type="number" class="num" id="lar1">
+
+                <input type="text" class="num" id="lar2">
+
+                <input type="text" class="num" id="lar3">
+
+
+
+                <button class="btn1" onclick="large()"><span class="text"> Larger </span></button>
+            </div>
+            <h1 id="max">Result</h1>
+        </div>
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>UpercasrLowercase</h1>
+            <div class="enter1"><input type="text" class="num" id="check1">
+
+                <button class="btn1" onclick="cas()"><span class="text"> Case</span></button>
+            </div>
+            <h1 id="resultcase">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>InterChange</h1>
+            <div class="enter1"><input type="text" class="num" id="change1">
+
+                <button class="btn1" onclick="change()"><span class="text"> Case</span></button>
+            </div>
+            <h1 id="resultchange">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>Factorial</h1>
+            <div class="enter1"><input type="text" class="num" id="fact">
+
+                <button class="btn1" onclick="Factori()"><span class="text"> Case</span></button>
+            </div>
+            <h1 id="resultfact">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>What ur Roll no:</h1>
+            <div class="enter1">
+                <label for="num">Roll No:</label>
+                <input class="num" id="roll"><button onclick="check()">check</button>
+
+                <div id="box" class="enter1" style="display: none;flex-direction: column;justify-content: center;">
+                    <div>
+                        <label for="num">English</label>
+                        <input class="num" id="marks1">
+                    </div>
+                    <div>
+                        <label for="num">Math</label>
+                        <input class="num" id="marks2">
+                    </div>
+                    <div>
+                        <label for="num">Scince</label>
+                        <input class="num" id="marks3">
+                    </div>
+                </div>
+
+
+                <button class="btn1" onclick="reslt()"><span class="text"> result</span></button>
+            </div>
+            <h1 id="resultroll">Result</h1>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="big-container">
+            <h1>Vowel or Consonent</h1>
+            <div class="enter1"><input type="text" class="num" id="vvoo">
+
+                <button class="btn1" onclick="checkkk()"><span class="text"> Case</span></button>
+            </div>
+            <h1 id="resultvow">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>odd numbers</h1>
+            <div class="enter1"><input type="text" class="num" id="oddd">
+
+                <button class="btn1" onclick="odd()"><span class="text"> odd</span></button>
+            </div>
+            <h1 id="resultodd">Result</h1>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="big-container">
+            <h1>odd numbers</h1>
+            <div class="enter1">Starting<input type="text" class="num" id="s1">
+
+                ending
+                <input type="text" class="num" id="e1">
+
+
+                <button class="btn1" onclick="even()"><span class="text"> even</span></button>
+            </div>
+            <h1 id="resulteven">Result</h1>
+        </div>
+
+    </section>
+    <section>
+        <div class="big-container">
+            <h1>odd numbers</h1>
+            <div class="enter1">number<input type="number" class="num" id="dayy">
+                <button class="btn1" onclick="day()"><span class="text"> even</span></button>
+            </div>
+            <h1 id="resultday">Result</h1>
+        </div>
+
+    </section>
+   
+    <section>
+        <div class="big-container">
+            <h1>Odd Sum</h1>
+            <div class="enter1"><input type="text" class="num" id="input">
+
+                <button class="btn1" onclick="oddsum()"><span class="text"> See</span></button>
+            </div>
+            <div>
+                <h1 id="count"></h1>
+                <h1 id="sum"></h1>
+            </div>
+        </section>
+
+            
+            
+            <section>
+                <div class="big-container">
+                    <h1>Table</h1>
+                    <div class="enter1">number<input type="number" class="num" id="table">
+                        <button class="btn1" onclick="Table()"><span class="text"> table</span></button>
+                    </div>
+                    <h1 id="resulttab">
+
+                    </h1>
+                </div>
+        
+            </section>
+            <section>
+                <div class="big-container">
+                    <h1>Prime</h1>
+                    <div class="enter1">number<input type="number" class="num" id="prime">
+                        <button class="btn1" onclick="prime()"><span class="text"> prime</span></button>
+                    </div>
+                    <h1 id="resultprime">
+                        
+                    </h1>
+                </div>
+        
+            </section>
+            <section>
+                <div class="big-container">
+                    <h1>odd</h1>
+                    <div class="enter1">number<input type="number" class="num" id="odd">
+                        <button class="btn1" onclick="oddd()"><span class="text"> prime</span></button>
+                    </div>
+                    <h1 id="resultodd2">
+                        
+                    </h1>
+                </div>
+        
+            </section>
+            <section>
+                <div class="big-container">
+                    <h1>palindrom</h1>
+                    <div class="enter1">number<input type="number" class="num" id="palid">
+                        <button class="btn1" onclick="palindrom()"><span class="text"> prime</span></button>
+                    </div>
+                    <h1 id="resultped">
+                        
+                    </h1>
+                </div>
+        
+            </section>
+            <section>
+                <div class="big-container">
+                    <h1>ArmsStrong</h1>
+                    <div class="enter1">number<input type="number" class="num" id="strong">
+                        <button class="btn1" onclick="Strong()"><span class="text"> prime</span></button>
+                    </div>
+                    <h1 id="Strong">
+                        
+                    </h1>
+                </div>
+        
+            </section>
+          
+            <section>
+                <div class="big-container">
+                    <h1>Perfact</h1>
+                    <div class="enter1">number<input type="number" class="num" id="perfact">
+                        <button class="btn1" onclick="Perfact()"><span class="text"> prime</span></button>
+                    </div>
+                    <h1 id="Perfact1">
+                        
+                    </h1>
+                </div>
+        
+            </section>
+          
+          
+
+          
+
+          
+
+          
+
+           
+            
+
+</body>
+
+<script src="tasks.js"></script>
+
+</html
