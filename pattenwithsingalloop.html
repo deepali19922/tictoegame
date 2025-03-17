@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        var posi=1;
+        for (let index = 1; index < 26; index++) {
+            if(posi >= index){
+                document.write("* &nbsp;");
+            }
+            if(index%5==0){
+                document.write("<br>");
+                posi+=6;
+            }
+           
+            
+        }
+
+        document.write("<hr>");
+
+        var posi=1,next=6;
+        for (let index = 1; index < 26; index++) {
+           if(posi == index){
+                b=1;
+                document.write(b+"&nbsp;");
+                posi+=6;
+           }
+           else if(next == index){
+            document.write(b+"&nbsp;");
+            next+=5;
+           }
+           else{
+            b++;
+            document.write(b+"&nbsp;")
+           }
+           if(index%5==0){
+                document.write("<br>");
+                
+           }
+            
+        }
+        document.write("<hr>");
+
+
+        var posi=26;
+        for (let index = 26; index > 0; index--) {
+            if(posi >= index){
+                document.write("* &nbsp;");
+            }
+            if(index%5==0){
+                document.write("<br>");
+                // posi+=6;
+            }
+           
+            
+        }
+        document.write("<hr>");
+
+
+        var n=5;
+        var s=0,i,k=1;
+        for(i=1;i<=n;){
+            if(s<i){
+                document.write(k)
+                s++
+                k++
+            }else{
+                document.write('<br>')
+                s=0;
+                i++
+                k=1;
+            }
+        }
+        document.write("<hr>");
+
+        var n=5,s=0,i;
+        for(i=1;i<=n;){
+            if(s<i){
+                document.write('&');
+                s++;
+            }else{
+                document.write('<br>')
+                s=0;
+                i++;
+
+            }
+        }
+        document.write("<hr>");
+        var n=5,i,s=0,k=2,o=2;
+        for(i=1;i<=n;){
+            if(s<i){
+                parseInt(document.write(k) );
+                s++;
+                k=k+o;
+
+            }else{
+                document.write('<br>')
+
+                s=0;
+                i++;
+            }
+        }
+        document.write("<hr>");
+        var n=5,i,s=0,k=1,o=2;
+        for(i=1;i<=n;){
+            if(s<i){
+                parseInt(document.write(k) );
+                s++;
+                k=k+o;
+
+            }else{
+                document.write('<br>')
+
+                s=0;
+                i++;
+            }
+        }
+        document.write("<hr>");
+        var n=5,i,s=0,k=1,o=2;
+        for(i=1;i<=n;){
+            if(s<i){
+                parseInt(document.write(k) );
+                s++;
+                k++
+                ;
+
+            }else{
+                document.write('<br>')
+
+                s=0;
+                i++;
+            }
+        }
+        document.write("<hr>");
+        var n=5,i,j;
+        for(i=1;i<=n;i++)
+        {
+            for(j=0;j<i;j++){
+                if(j%2==0){
+                    document.write('1')
+
+                }else
+                    document.write('0')
+                    
+            }
+            document.write('<br>')
+
+        }
+        document.write("<hr>");
+        var n=5,i,s=1;
+        for(i=1;i<=n;){
+            if(s%2!=0){
+                document.write('1');
+            }
+            else{
+                document.write('0');
+            }
+            s++;
+            if(i<s){
+                document.write("<br>");
+                s=1;
+                // b++;
+                i++
+            }
+        }
+        {
+        document.write("<hr>");
+        var n=5,i,j;
+        for(i=1;i<=n;i++)
+        {
+            for(j=0;j<i;j++){
+                if(j%2==0){
+                    document.write('1')
+
+                }else
+                    document.write('2')
+                    
+            }
+            document.write('<br>')
+
+        }
+        document.write("<hr>");
+
+        var t = 20
+        let evenCount = 0;
+        let oddCount = 0;       
+            var i;
+             for(i=1;i<t;i++){
+             if(i%2==0){
+            // document.write(i+'<br>')
+            evenCount++
+        }
+
+  }
+  document.write(evenCount)
+}
+document.write("<hr>");
+
+
+            
+
+
+   
+        
+       
+         </script>
+</html>
