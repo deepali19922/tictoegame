@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game-try</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<style>
+    
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #3e4a49;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #f9c74f;
+}
+
+h4 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #f1a3a3;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+    margin-top: 30px;
+    
+}
+
+.box {
+    height: 120px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: #ffffc7;
+    border: 3px solid #f9c74f;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #d0342e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.box:disabled {
+    background-color: #ddd;
+    color: #999;
+    border-color: #999;
+}
+
+.box:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+
+.player-choice-btn {
+    padding: 15px 30px;
+    background-color: #f9c74f;
+    color: #191913;
+    border: none;
+    border-radius: 30px;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.player-choice-btn:hover {
+    background-color: #f1a3a3;
+}
+#reset-btn{
+    background-color: #f9c74f;
+    color: #191913;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-inline-start: 80px;
+    margin-block: 50px;
+}
+#reset-btn:hover{
+    background-color: #f1a3a3;
+
+}
+
+
+.score-board {
+    margin-top: 30px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #2b3a3a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.score-board td {
+    padding: 15px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.score-board td:first-child {
+    text-align: left;
+    font-weight: bold;
+}
+
+.score-board td:nth-child(2) {
+    color: #f9c74f;
+}
+
+.pplayer {
+    font-size: 1.5rem;
+    color: #f9c74f;
+}
+
+.Playerturn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 30px;
+    gap: 10px;
+    color: #fff;
+}
+
+.Playerturn .playername {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.Playerturn input {
+    margin-left: 10px;
+    transform: scale(1.3);
+}
+
+.msg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+input[type="radio"] {
+    accent-color: #f9c74f;
+}
+
+#msg {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f9c74f;
+}
+
+.container {
+    display: none;
+    margin-top: -200px;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    min-height: 100vh;
+    position: relative;
+}
+
+input[type="radio"] {
+    accent-color: red;
+}
+
+input[type="radio"]:checked + label {
+    color: #f9c74f;
+}
+.main-heading{
+    
+    position: absolute;
+    top: -321px;
+    left: 581px;
+}
+.player{
+    position: absolute;
+    bottom: 100%;
+    left: 40%;
+}
+.player-symbols {
+            position: absolute;
+            top: 20%;
+            right: 5%;
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            font-size: 1.5rem;
+            width: 200px;
+            text-align: left;
+        }
+        .player-symbols p {
+            margin-bottom: 10px;
+        }
+
+</style>
+
+<body>
+    <div class="player-symbols">
+        <h2>Player Symbols</h2>
+        <p>Player 1: <span id="player1Symbol">?</span></p>
+        <p>Player 2: <span id="player2Symbol">?</span></p>
+    </div>
+    
+    <table class="score-board">
+        <tr>
+            <td colspan="2" class="td" style="background: indianred;"> Score Board</td>
+        </tr>
+    
+        <tr>
+            <td class="td1" style="background: wheat;">Player</td>
+            <td class="td" style="background: wheat;">Score</td>
+        </tr>
+        
+        <tr class="pplayer">
+            
+            <td class="td"> Player 1 </td>
+            
+            <td class="td" id="player1">0</td>
+        </tr>
+        
+        <tr class="pplayer">
+          
+
+            <td class="td"> player 2 </td>
+            <td class="td" id="player2">0</td>
+        </tr>
+        <tr>
+            <td class="td"> Draw </td>
+            <td class="td" id="drawcount">0</td>
+
+        </tr>
+
+    </table>
+    <main>
+        
+        <h1 class="main-heading">TIC TOC TOE</h1>
+        <div class="player" >
+            <div class="Playerturn">
+                <h1 class="playername">player 1</h1>
+                <input type="radio"  id="player1X" onclick="choose_player(1)" value="X"> <label for="player1X"><h4>X</h4></label>
+                <input type="radio"  id="player1O" onclick="choose_player(2)" value="O"> <label for="player1O"><h4>O</h4></label>
+            </div>
+            <div class="Playerturn">
+                <h1 class="playername">player 2</h1>
+                <input type="radio"  id="player2X" onclick="choose_player(2)"> <label for="player2X"><h4>X</h4></label>
+                <input type="radio"  id="player2O" onclick="choose_player(1)"> <label for="player2O"><h4>O</h4></label>
+            </div>
+
+            <button class="player-choice-btn" >Start game</button>
+        </div>
+        <div class="container">
+            <div class="game">
+                <button class="box" onclick="game(0)"></button>
+                <button class="box" onclick="game(1)"></button>
+                <button class="box" onclick="game(2)"></button>
+                <button class="box" onclick="game(3)"></button>
+                <button class="box" onclick="game(4)"></button>
+                <button class="box" onclick="game(5)"></button>
+                <button class="box" onclick="game(6)"></button>
+                <button class="box" onclick="game(7)"></button>
+                <button class="box" onclick="game(8)"></button>
+            </div>
+            <button id="reset-btn">Reset game</button>
+            <div class="">
+                <p id="msg">winner</p>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+</body>
+<script>
+    var container = document.getElementsByClassName("container")
+    var boxs = document.querySelectorAll('.box');
+    var reset_btn = document.getElementById('reset-btn');
+    var win = document.getElementById('msg');
+    var X = document.getElementById('X');
+    var O = document.getElementById('O');
+    var player1X = document.getElementById('player1X');
+    var player1O = document.getElementById('player1O');
+    var player2X = document.getElementById('player2X');
+    var player2O = document.getElementById('player2O');
+    var turnO;
+    var fill_box = 0;
+    var button_start = document.getElementsByClassName('player-choice-btn');
+    var playerbox = document.querySelector('.player');
+    var gamebox = document.querySelector('.container');
+    var player1 = document.getElementById('player1');
+    var player2 = document.getElementById('player2');
+    var drawcount = document.getElementById('drawcount');
+    var player1Symbol = document.getElementById("player1Symbol");
+    var player2Symbol = document.getElementById("player2Symbol");
+    var player1Score = 0;
+    var player2Score = 0;
+    var drawScore = 0;
+    var player_symbols
+    function choose_player(index){
+        player_symbols = index;
+        if(index == 1){
+            player2X.checked = false;
+            player1O.checked = false;
+            player2O.checked = true;
+            player1X.checked = true;
+            player1Symbol.innerText = "X";
+            player2Symbol.innerText = "O";
+            
+            button_start[0].setAttribute("onclick", "start_game()"); 
+            turnO = player1X.value    
+        }
+        if(index==2)
+        {
+            player2O.checked = false;
+            player1X.checked = false;
+            player2X.checked = true;
+            player1O.checked = true;
+            player1Symbol.innerText = "O";
+            player2Symbol.innerText = "X";
+            
+            button_start[0].setAttribute("onclick", "start_game()");
+            turnO = player1O.value
+        }
+    }
+//     function choose_player() {
+//     if (player1X.checked) {
+//         player1Symbol.innerText = "X";
+//         player2Symbol.innerText = "O";
+//         turnO = player1X.value;  // Make sure 'turnO' is used correctly elsewhere
+//     } 
+//     else if (player1O.checked) {
+//         player1Symbol.innerText = "O";
+//         player2Symbol.innerText = "X";
+//         turnO = player1O.value;
+//     }
+
+// }
+// ------------------------------------chose player----------------------------------------
+    function start_game(){  
+        playerbox.setAttribute("style","display:none;");
+        gamebox.setAttribute("style","display:flex;");
+        win.innerText = "Player "+turnO+"'s Turn"
+    }
+
+    function game(index) {
+        if (turnO == 'O' && boxs[index].innerText == '') {
+            boxs[index].innerText = turnO;
+            turnO = 'X';
+            boxs[index].disabled
+             win.innerText = "Player "+turnO+"'s Turn"
+        }
+        else if (boxs[index].innerText == '') {
+            boxs[index].innerText = turnO;
+            turnO = 'O';
+            boxs[index].disabled
+             win.innerText = "Player "+turnO+"'s Turn"
+        }
+        fill_box++;
+        if (fill_box != boxs.length) {
+            
+            reset_btn.removeAttribute("onclick");
+        }
+       
+        win1();
+    }
+    let draw = 0;
+    function win1() {
+        if ((boxs[0].innerText == 'O' && boxs[1].innerText == 'O' && boxs[2].innerText == 'O') ||
+            (boxs[3].innerText == 'O' && boxs[4].innerText == 'O' && boxs[5].innerText == 'O') ||
+            (boxs[6].innerText == 'O' && boxs[7].innerText == 'O' && boxs[8].innerText == 'O') ||
+            (boxs[0].innerText == 'O' && boxs[3].innerText == 'O' && boxs[6].innerText == 'O') ||
+            (boxs[1].innerText == 'O' && boxs[4].innerText == 'O' && boxs[7].innerText == 'O') ||
+            (boxs[2].innerText == 'O' && boxs[5].innerText == 'O' && boxs[8].innerText == 'O') ||
+            (boxs[0].innerText == 'O' && boxs[4].innerText == 'O' && boxs[8].innerText == 'O') ||
+            (boxs[2].innerText == 'O' && boxs[4].innerText == 'O' && boxs[6].innerText == 'O')) 
+              {
+                player1Score++;
+            win.innerText = "your win O";
+            if(player_symbols == 1){
+                 
+                player2.innerText =  player1Score;
+            }
+            else{
+                
+                player1.innerText =  player1Score;
+            }
+            // player1Score++;
+            //
+            
+            
+            reset_btn.setAttribute("onclick", "reset()");
+            for (let index = 0; index < boxs.length; index++) {
+                boxs[index].removeAttribute("onclick");
+            }
+        }
+        else if ((boxs[0].innerText == 'X' && boxs[1].innerText == 'X' && boxs[2].innerText == 'X') ||
+            (boxs[3].innerText == 'X' && boxs[4].innerText == 'X' && boxs[5].innerText == 'X') ||
+            (boxs[6].innerText == 'X' && boxs[7].innerText == 'X' && boxs[8].innerText == 'X') ||
+            (boxs[0].innerText == 'X' && boxs[3].innerText == 'X' && boxs[6].innerText == 'X') ||
+            (boxs[1].innerText == 'X' && boxs[4].innerText == 'X' && boxs[7].innerText == 'X') ||
+            (boxs[2].innerText == 'X' && boxs[5].innerText == 'X' && boxs[8].innerText == 'X') ||
+            (boxs[0].innerText == 'X' && boxs[4].innerText == 'X' && boxs[8].innerText == 'X') ||
+            (boxs[2].innerText == 'X' && boxs[4].innerText == 'X' && boxs[6].innerText == 'X')) {
+            win.innerText = "your win X"
+             
+            player2Score++ 
+            
+            reset_btn.setAttribute("onclick", "reset()");
+            for (let index = 0; index < boxs.length; index++) {
+                boxs[index].removeAttribute("onclick");
+            }
+            if(player_symbols == 1){
+                
+                player1.innerText =  player2Score;
+            }
+            else{
+                
+                player2.innerText =  player2Score;
+            }
+
+        } else {
+
+            draw++;
+        }
+        if (draw == 9) {
+            win.innerText = "Match is draw"
+            drawScore++;
+            drawcount.innerText = drawScore;
+            reset_btn.setAttribute("onclick", "reset()");
+            for (let index = 0; index < boxs.length; index++) {
+                boxs[index].removeAttribute("onclick");
+            }
+
+        }
+    }
+
+    function reset() {
+        for (let index = 0; index < boxs.length; index++) {
+            boxs[index].innerText = "";
+            boxs[index].setAttribute("onclick", 'game(' + index + ')');
+        }
+        win.innerText = "Winner"
+        fill_box = 0;
+        draw = 0
+       
+        
+    }
+
+    
+
+
+
+</script>
+
+</html>
